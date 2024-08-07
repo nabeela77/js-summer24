@@ -14,6 +14,7 @@ console.log(8 == 7); // false
 
 // other primitives
 console.log(0 === false); // false
+<<<<<<< Updated upstream
 console.log(0 == false); // true
 
 // compare primitives
@@ -49,3 +50,6 @@ console.log("arrA === arrB", arrA === arrB); // true, true, true
 arrB[0] = 200
 console.log("arrA", arrA); //[200]as it has same address as arrB
 console.log("arrB", arrB); //[200]as it has same address as arrA
+=======
+console.log(0 == false); // true
+>>>>>>> Stashed changes
