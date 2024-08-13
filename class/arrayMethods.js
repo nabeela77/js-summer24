@@ -1,9 +1,9 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // for (let i = 0; i < arr.length; i++) {
-// 	// 10000 + 0 index * 8 bits = 10000
-// 	// 10000 + 1 index * 8 bits = 10008
-// 	const element = arr[i];
+// 	// 10000 + 0 index * 8 bits = 10000 to find using index
+// 	// 10000 + 1 index * 8 bits = 10008 to find using index 
+// 	const element = arr[i]; [] helps in finding value of index
 // 	console.log(element);
 // }
 
@@ -14,7 +14,7 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // 	console.log(`el: ${element}`);
 // });
 
-// Array.map()
+// Array.map() new array is created in .map keeping original array intact
 const newArray = arr.map(function (element) {
 	return element * 100;
 });
@@ -112,4 +112,35 @@ function findWithForEach(target, array) {
 
 console.log("index: ", findWithForEach(5, arr));
 
-// filter and reduce
+// return statement breaks loop and function, break statement breaks just the loop not function, 
+// foreach and map return statement breaks function and loop but not foreach and map loops
+
+// filter method
+const duplicates = [5, 7, 9 ,8 ,8, 6, 0, 0, 9, 8];
+function filterFor(target, array) {
+    return array.filter((element) => element !== target);
+}
+
+console.log(filterFor(8, duplicates));
+
+
+// reduce
+function sum2(array) {
+	// const cb = (prevValue, currValue) => {}
+	return array.reduce((prevValue, currValue) => {
+		return prevValue + currValue;
+	}, 0);
+}
+
+function copy2(array) {
+	return array.reduce(
+		(prev, curr) => {
+			prev[0] = prev[0] + curr;
+			return prev;
+		},
+		[0]
+	);
+}
+
+console.log(copy2(duplicates));
+console.log(duplicates);

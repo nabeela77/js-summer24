@@ -5,7 +5,7 @@ function greet(salutation) {
 	console.log(salutation);
 }
 // greet("hi");
-// greet("hello world");
+// console.log(greet("hello world"));
 
 // copy-by-value vs copy-by-reference value
 function addFive(num) {
@@ -18,7 +18,7 @@ function modifyToFive(array) {
 
 let a = 5;
 addFive(a); // passing in 'a' to function
-// console.log(a); // 10, 5
+console.log(a); // 10, 5
 
 let arrA = [200]; // 'aabbcc'
 modifyToFive(arrA); // passing in arrA to function
