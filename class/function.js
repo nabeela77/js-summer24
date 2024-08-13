@@ -111,10 +111,31 @@ console.log(`index is: ${i}, value is: ${val} `); // <------ template string lit
 console.log("index is: ".concat(i, ", value is: ", val)); // .concat method
 console.log("hello".includes());
 
-function weekDays(days) {
-    daysOfWeek = ["Monday", "Tuesday", "Wednesday"];
+function isEven(num) {
+	return num % 2 === 0;
 }
 
-let days = ["Thrusday"]
-weekDays(days);
-console.log(days)
+// JS operators
+function operator(num1, num2) {
+	const num1IsEven = isEven(num1);
+	const num2IsEven = isEven(num2);
+
+	// && -> "and"
+	// || -> "or"
+	if (num1IsEven && num2IsEven) {
+		console.log("both are even");
+	} else if (isEven(num1) || isEven(num2)) {
+		console.log("at least one number is even");
+	} else if (num1 > num2) {
+		// >, <, >=, <=
+		console.log("num1 is greater than num2");
+	}
+}
+
+function div(a, b) {
+	return a / b;
+}
+
+function mult(a, b) {
+	return a * b;
+}
