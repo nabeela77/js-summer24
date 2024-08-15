@@ -62,7 +62,7 @@ function repeatCount(target, array) {
     return repCount.length;
 }
 
-// console.log(repeatCount(154, repeat));
+ console.log(repeatCount(154, repeat));
 
 // 6. Write a function that takes in an argument function checkType(input) - if the input
 // is an array or javascript object then it returns the string “object” - otherwise it will
