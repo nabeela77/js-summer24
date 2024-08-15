@@ -54,15 +54,15 @@ const arrayList = [1,2,3,5,6,8,9]
 // console.log(arrayList)
 
 // 5. Write a function that takes in this array as input [154, 657, 564, 561, 154, 678,
-// 100, 154] and returns the number of times 154 occurred or existed in that array.
+// 100, 154] and returns the number of times 154 occurred or existed in that array. (use reduce)
 
 const repeat = [154, 657, 564, 561, 154, 678, 100, 154];
-function repeatCount(target) {
-    const repCount = repeat.filter((element) => element === target);
+function repeatCount(target, array) {
+    const repCount = array.filter((element) => element === target);
     return repCount.length;
 }
 
-// console.log(repeatCount(154));
+// console.log(repeatCount(154, repeat));
 
 // 6. Write a function that takes in an argument function checkType(input) - if the input
 // is an array or javascript object then it returns the string “object” - otherwise it will
@@ -74,5 +74,5 @@ function checkType(input) {
         return "It's something else"
     }    
 }
-console.log(checkType(55))
-console.log(checkType([1,2,3,4]))
+// console.log(checkType(55))
+// console.log(checkType([1,2,3,4]))
