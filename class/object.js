@@ -1,3 +1,8 @@
+// objects are a collection of <key: value> pairs separated by ,
+// ORDER DOES NOT MATTER, WHAT MATTERS IS THE KEY VALUE
+// don't get confused with these other notations/syntaxes
+// function myFunc() {}
+// const arr = () => {}
 // create
 const student1 = {
     firstName: "Anna",
@@ -11,8 +16,35 @@ const student1 = {
         shippingAdress: "456 Wall St",
     },
     enrollment: ["cs101", "math01", "chem02"],
-    gradYear: null
+    gradYear: null,
+
+    	// methods
+	getName: function () {
+		return this.getName;
+	},
+
+	// ES6 new notation does not need a ":" or "function" keyword
+	// phoneType: "home", "cell"
+	getPhone(phoneType) {
+		return this.phone[phoneType];
+	},
+
+    // add course method
+    addCourse: function (newCourse) {
+        if (newCourse === '') return false;
+        if (this.enrollment(newCourse)) return false;
+        this.enrollment.push(newCourse);
+        return true
+    },
+    // remove existing course
+    // courseToRemove(enrollmentType) {
+    //     delete student1.enrollment[0]
+    //     return this.enrollment[enrollmentType]
+    // },
 };
+student1.addCourse("lang03");
+
+console.log(student1)
 
 // console.log(student1.address)
 // console.log(student1.address.mailingAdress)
@@ -68,17 +100,18 @@ student1.getMailingAddress = function () {
 student1.address.getMailingAddress = function () {
 	console.log("this from address object", this);
 	return this.mailingAddress;
-
+}
 // console.log("address: ", student1.getMailingAddress());
 // student1.address.getMailingAddress();    
 
 // try this - with arrow function
 
-student1.getShippingAddress = () => {
-	console.log("this from arrow function: ", this);
-	return this.address.shippingAddress;
-};
+// student1.getShippingAddress = () => {
+// 	console.log("this from arrow function: ", this);
+// 	return this.address.shippingAddress;
+// };
 
-console.log(student1.getShippingAddress());
+// console.log(student1.getShippingAddress());
 
 // globalThis and arrow functions
+

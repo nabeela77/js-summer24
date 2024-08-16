@@ -137,3 +137,5 @@ function reverseArray(array) {
 }
 
 console.log(reverseArray([1,2,3,4]));
+
+// for, map, reduce, for each, while
