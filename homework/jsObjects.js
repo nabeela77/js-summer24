@@ -55,17 +55,13 @@ console.log(updateInventory(inventory, newItems))
 function groupPeopleByAge(people) {
     const ageGroups = {};
     people.forEach(person => {
-        const { name, age } = person; // Destructure name and age
-        
-        // Convert age to string to use as an object key
+        const { name, age } = person;
         const ageKey = age.toString();
-        
-        // Check if the age already exists in the object
         if (ageGroups[ageKey]) {
-            // If it exists, add the name to the existing array
+
             ageGroups[ageKey].push(name);
         } else {
-            // If it does not exist, create a new array with the name
+            
             ageGroups[ageKey] = [name];
         }
     });
