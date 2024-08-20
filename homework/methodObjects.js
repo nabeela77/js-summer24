@@ -54,17 +54,30 @@ const user1 = {
 
 // ● addNewPhone(phoneType, phoneNumber) add the new phone number to
 // the phone object (while keeping the current ones there)
-    addNewPhone(phoneType, phoneNumber) {
-        this.phone[phoneType] = phoneNumber;
-        return this.phoneNumber;
-    },
+addNewPhone(phoneType, phoneNumber){
+    if((phoneType || phoneNumber) ===  " " ) return false
+
+    if(phoneType && phoneNumber) {
+
+    
+    this.phone.push(phoneType || phoneNumber);
+    return true ;
+    }
+},
+};
+
+console.log(user1.addNewPhone("work","444-444-4444"));
 
 // ● updateNewPhone(phoneType, newPhoneNumber) update a certain phone
 // number with the new phone number
-updateNewPhone(phoneType, newPhoneNumber) {
+updateNewPhone(phoneType, newPhoneNumber){
+    if((phoneType || newPhoneNumber) ===  " " ) return false;
 
-}
-}
+    if(this.phone[phoneType]){
+        this.phone[phoneType] = newPhoneNumber;
+        return true;
+    }
+    
 console.log(user1.getName());
 console.log(user1.getPhone());
 console.log(user1.getEmail());
