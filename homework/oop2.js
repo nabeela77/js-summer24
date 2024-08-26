@@ -75,9 +75,9 @@ class Vehicle {
 		return this.year + " " +this.make + " " + this.model
 	}
 }
-const CRV = new Vehicle("2020", "honda", "CRV");
-console.log(CRV);
-console.log(CRV.getInfo());
+// const CRV = new Vehicle("2020", "honda", "CRV");
+// console.log(CRV);
+// console.log(CRV.getInfo());
 
 class Car extends Vehicle {
 	numDoors;
@@ -85,7 +85,14 @@ class Car extends Vehicle {
 		super(year, make, model); 
         this.numDoors = numDoors;
 	}
+
+    getInfo(){
+        return this.year + " " +this.make + " " + this.model + " " + this.numDoors;
+    }
+
 }
+const CRV = new Car("2020", "honda", "CRV", "4");
+console.log(CRV.getInfo())
 
 class Truck extends Vehicle {
 	loadCapacity;
@@ -93,30 +100,21 @@ class Truck extends Vehicle {
 		super(year, make, model); 
         this.loadCapacity = loadCapacity;
 	}
+    getInfo(){
+        return this.year + " " +this.make + " " + this.model + " " + this.loadCapacity;
+    }
 }
-
+const RidgeLine = new Truck("2020", "honda", "Ridgeline", "4");
+console.log(RidgeLine.getInfo())
 // 4. Implement an Employee, CrewMember and Manager Class:
 
 // Note: All properties in these classes should be private (use # to make a property
 // private). Create methods to set and retrieve these properties.
+
+
 // a. Create an Employee class with
 // i. properties name, id, and email.
 // ii. Include methods for basic employee behavior.
-// b. Create another class called CrewMember that extends Employee.
-// i. CrewMember is a normal employee and should have a “manager”
-// property that references the manager object.
-// ii. Add methods to CrewMember for setting/getting the manager.
-// c. Then, create a Manager class that extends Employee.
-// i. Add a property “subordinates”, which is an array of Employee instances
-// that the manager supervises.
-// ii. Implement methods in Manager to add or remove employees from the
-// subordinates list.
-
-// d. Use the classes to create a manager and 3 crew members.
-// i. Set all 3 crew members’ manager property to the manager instance.
-// ii. Add all 3 crew members to the manager’s subordinates list.
-
-
 class Employee{
     #name;
     #id;
@@ -138,6 +136,11 @@ class Employee{
     }
 }
 
+// b. Create another class called CrewMember that extends Employee.
+// i. CrewMember is a normal employee and should have a “manager”
+// property that references the manager object.
+// ii. Add methods to CrewMember for setting/getting the manager.
+
 
 class CrewMember extends Employee{
     #manager;
@@ -148,11 +151,24 @@ class CrewMember extends Employee{
     getManager(){
         return this.#manager
     }
-    setManager(){
-        this.#manager = manager;
+    setManager(manager){
+        this.#manager = manager; 
     }
 }
 
+
+const manager = new Employee('Dave', 101, 'sarah@example.com'); 
+const Emma = new CrewMember("Emma", 2,"emma@gmail.com");
+
+CrewMember.setManager(manager); 
+console.log(CrewMember.getName() + "'s manager is " + CrewMember.getManager().getName()); 
+
+
+// c. Then, create a Manager class that extends Employee.
+// i. Add a property “subordinates”, which is an array of Employee instances
+// that the manager supervises.
+// ii. Implement methods in Manager to add or remove employees from the
+// subordinates list.
 
 class Manager extends Employee{
     #subordinates;
@@ -164,27 +180,53 @@ class Manager extends Employee{
     addEmployee(employee){
         return this.#subordinates.push(employee)
     }
-    
+
+    removeSubordinates(employee){
+        return this.#subordinates.filter(sub => sub !== employee);
+    }
+
+    getSubordinates() {
+        return this.#subordinates;
+    }   
 }
-// employee consoles
-const Jenny = new Employee("Jenny", "01" ,"jenny@gmail.com");
+
+const Binny = new Manager("Binny", 100, "binny@gmail.com");
+// employee console
+const Jenny = new Employee("Jenny", 1 ,"jenny@gmail.com");
 console.log(Jenny);
 console.log(Jenny.getEmail());
 
+// const Emma = new CrewMember("Emma", 2,"emma@gmail.com");
+
+manager.addSubordinate(Jenny);
+manager.addSubordinate(Emma);
+
+console.log(manager.getSubordinates().map(emp => emp.getName()));
+
+manager.removeSubordinate(Jenny);
+console.log(manager.getSubordinates().map(emp => emp.getName()));
 
 
+
+// d. Use the classes to create a manager and 3 crew members.
+// i. Set all 3 crew members’ manager property to the manager instance.
+// ii. Add all 3 crew members to the manager’s subordinates list.
+// employee consoles
 
 // manager consoles
-const Binny = new Manager("Binny", "100", "binny@gmail.com")
-
-
+const Binny = new Manager("Binny", 100, "binny@gmail.com");
 
 // crewmember
-const Emma = new CrewMember("Emma", "02","emma@gmail.com");
-const David = new CrewMember("David", "03","david@gmail.com");
-const John = new CrewMember("John", "04","john@gmail.com");
+const Emma = new CrewMember("Emma", 2,"emma@gmail.com");
+const David = new CrewMember("David", 3,"david@gmail.com");
+const John = new CrewMember("John", 4,"john@gmail.com");
 
-Manager.addEmployee(Emma);
-Manager.addEmploye(David);
-Manager.addEmploye(John);
+Emma.setManager(manager);
+David.setManager(manager);
+John.setManager(manager);
 
+manager.addEmployee(Emma);
+manager.addEmployee(David);
+manager.addEmployee(John);
+
+console.log(manager.getSubordinates().map(emp => emp.getName()));

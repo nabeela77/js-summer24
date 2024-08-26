@@ -20,7 +20,7 @@ console.log(factorial(5));
 
 
 
-function sumArray(arr) {
+function sumArray(array) {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
         sum += array[i]
@@ -28,7 +28,7 @@ function sumArray(arr) {
     return sum
 }
 
-function sumArray(arr) {
+function sumArray(array) {
     let i = 0;
     while (i < array.length) {
         sum += array[i];
@@ -36,7 +36,7 @@ function sumArray(arr) {
     }
 }
 
-function sumArray(arr) {
+function sumArray(array) {
     array.forEach((element) =>  {
         sum += element;
     });

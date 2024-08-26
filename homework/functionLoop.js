@@ -121,7 +121,7 @@ function longestWord(sentence) {
     });
     return longest;
 };
-const sentence = "Breakfast was good".split(" ")
+const sentence = "good breakfast".split(" ")
 console.log(longestWord(sentence))
 
 // 8. Reverse Array:
@@ -144,15 +144,15 @@ console.log(reverseArray([1,2,3,4]));
 // alternate answers
 
 // 7
-function longestWord(sen) {
-	const words = sen.split(" ");
-	return words.reduce((longest, curr) => {
-		if (curr.length > longest.length) return curr;
-		return longest;
-	}, "");
-}
+// function longestWord(sen) {
+// 	const words = sen.split(" ");
+// 	return words.reduce((longest, curr) => {
+// 		if (curr.length > longest.length) return curr;
+// 		return longest;
+// 	}, "");
+// }
 
-const sentence = " We are having the Javascript class";
+// const sentence = " We are having the Javascript class";
 // console.log(longestWord(sentence));
 
 // time complexity

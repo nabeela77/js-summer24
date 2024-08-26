@@ -70,14 +70,22 @@ console.log(user1.addNewPhone("work","444-444-4444"));
 
 // ● updateNewPhone(phoneType, newPhoneNumber) update a certain phone
 // number with the new phone number
-updateNewPhone(phoneType, newPhoneNumber){
-    if((phoneType || newPhoneNumber) ===  " " ) return false;
+updateNewPhone(phoneType, newPhoneNumber); {
+    if (!phoneType || !newPhoneNumber) {
+        return false;
+    }
 
-    if(this.phone[phoneType]){
+    // Check if the phoneType exists in this.phone
+    if (this.phone[phoneType]) {
         this.phone[phoneType] = newPhoneNumber;
         return true;
     }
-    
+
+    // If phoneType does not exist, return false
+    return false;
+};
+
+
 console.log(user1.getName());
 console.log(user1.getPhone());
 console.log(user1.getEmail());
@@ -85,4 +93,6 @@ console.log(user1.addToCart("orange"));
 console.log(user1.cart);
 console.log(user1.removeFromCart("orange"))
 console.log(user1.cart);
+
+// recheck
 

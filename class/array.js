@@ -1,21 +1,22 @@
-<<<<<<< Updated upstream
+
 // create an array
-// const arrA = [];
-// console.log(arrA);
+const arrA = [];
+console.log(arrA);
 
 // update an array
-// arrA[1] = 999;
-// arrA[2] = 999.5;
-// arrA.push(1000, 1002, 1003);
-// arrA.push([1004, 1005, 1006]);
-// arrA[10] = {};
-// arrA[1] = 999.3
-// arrA[10] = {};creates object with {} index7,8,9 are empty
+arrA[1] = 999;
+arrA[2] = 999.5;
+arrA.push(1000, 1002, 1003);
+arrA.push([1004, 1005, 1006]);
+arrA[10] = {};
+arrA[1] = 999.3
+arrA[10] = {};
+// creates object with {} index7,8,9 are empty
 
 
-//  console.log(arrA[0]);
-// console.log(arrA);
-// console.log(arrA.length);
+ console.log(arrA[0]);
+console.log(arrA);
+console.log(arrA.length);
 
 // const fruits = [];
 // console.log(fruits);
@@ -37,7 +38,7 @@
 // console.log(itm)
 
 // function loopPrint(array){
-=======
+
 // // // // create an array
 // // // const arrA = [];
 // // // console.log(arrA);
@@ -76,7 +77,6 @@
 // // console.log(itm)
 
 // // function loopPrint(array){
->>>>>>> Stashed changes
 
 // }
 

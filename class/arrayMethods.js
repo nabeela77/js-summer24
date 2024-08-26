@@ -18,6 +18,7 @@ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const newArray = arr.map(function (element) {
 	return element * 100;
 });
+
 // console.log("new array from .map(): ", newArray);
 // console.log(arr);
 

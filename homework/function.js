@@ -26,14 +26,14 @@ console.log(convert(100))
 function divisibleBy55(num) {
     return num % 55 === 0
 }
-console.log(divisibleBy55(55))
+console.log(divisibleBy55(1))
 
 // 5. Write a function called “checkLength” that takes in a string and return a number
 // indicating the string’s length.
 function checkLength(item) {
     return item.length 
 }
-console.log(checkLength("Nabeela"))
+console.log(checkLength("Nabela"))
 
 // 6. Write a function called “concat” that takes in 2 strings and returns the
 // concatenated string. Ex: “cat” and “dog” will return “cat dog”.
