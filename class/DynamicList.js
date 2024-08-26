@@ -158,6 +158,3 @@ class DynamicList {
 // dl.print();
 // dl.push(5000);
 // dl.print();
-
-
-console.log(shift([1,2,3,4,5]))
