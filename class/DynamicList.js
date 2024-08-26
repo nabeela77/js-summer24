@@ -98,11 +98,12 @@ class DynamicList {
         if (this.size === 0) return undefined;
         const remElement = this.array[0];
         for (i =0; i < this.size - 1; i++) {
-            this.array[i] = this.array[i - 1];
+            this.array[i] = this.array[i + 1];
         }
         this.size--;
         return remElement;
     }
+
 
 	/**
 	 * Return first element, but does not remove, or returns null if list is empty
@@ -157,3 +158,6 @@ class DynamicList {
 // dl.print();
 // dl.push(5000);
 // dl.print();
+
+
+console.log(shift([1,2,3,4,5]))
