@@ -61,7 +61,7 @@ class DynamicList {
 	/**
 	 * Add element to front of list.
 	 * Consider beginning states: [4, 5, 6, _, _, _] or [4, 5, 6] then add capacity yields -> [4, 5, 6, _, _, _]
-	 */
+	 */ 
 	unshift(element) {
 		this.addCapacity();
 
@@ -92,7 +92,7 @@ class DynamicList {
 
 	/**
 	 * Remove from front and return that element, shift all items left by 1. If list is empty, return undefined.
-	 * time complexity:
+	 * time complexity: O(N) as for loop is used
 	 */
 	shift() {
         if (this.size === 0) return undefined;
@@ -107,7 +107,7 @@ class DynamicList {
 
 	/**
 	 * Return first element, but does not remove, or returns null if list is empty
-	 * time complexity:
+	 * time complexity: O(1) as we know the item we want
 	 */
 	peekFirst() {
         const firstElement = this.array[0];
@@ -116,7 +116,7 @@ class DynamicList {
 
 	/**
 	 * Return last element, but does nto remove, or returns null if list is empty
-	 * time complexity:
+	 * time complexity: O(1) as we know the item we want
 	 */
 	peekLast() {
         const lastElement = this.array[this.size - 1];
@@ -126,7 +126,7 @@ class DynamicList {
 	/**
 	 * Return the element at the given index.
 	 * @param {*} index - The index at which the element reside.
-	 * time complexity:
+	 * time complexity: O(1) as we know the item we want
 	 */
 	get(index) {
         const element = this.array[index];
@@ -136,7 +136,7 @@ class DynamicList {
 	/**
 	 * Returns the index of the target element. If target is not found, return -1
 	 * @param {*} target - The element to find the index of.
-	 * time complexity:
+	 * time complexity:O(N) as for loop is used
 	 */
 	indexOf(target) {
         for (i=0; i < this.size; i++) {
