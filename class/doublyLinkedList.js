@@ -126,16 +126,21 @@ class DoublyLinkedList {
 	 * time complexity is o(1)
 	 */
 	removeFirst() {
-		if (this.size === 0) return null;
-		if (this.size === 1) {
-			this.sentinel = this.sentinel;
-			this.size--;
-			// this.sentinel = null; alternative method throwing error
-			// this.tail = null
-		};
-        this.sentinel = this.getHead().next;
+ 		if (this.size === 0) return null;
+
+		if (this.size === 1)return this.removeLast()
+		const head = this.getHead();
+		const newhead = head.next;
+		//{} <-> {6}<-> {10}<-> {15} <-> {25} <-> null
+		this.sentinel.next = newhead ;
+		newhead.prev = this.sentinel;
 		this.size--;
 
+		// this.sentinel.next = newhead; 
+		// newhead.prev = this.sentinel;// Update sentinel's next pointer
+		// this.size--;
+		
+		return head.data;
 	}
 
 	/**
@@ -144,8 +149,8 @@ class DoublyLinkedList {
 	 * @param {*} index
 	 */
 	remove(index) {
-		if (index === 0 || index >= this.size ) return null;
-		if (index === 1 ) return this.removeFirst();
+		if (index < 0 || index >= this.size ) return null;
+		if (index === 0 ) return this.removeFirst();
 		if (index === this.size - 1) return this.removeLast();
         
 		let curr = this.getHead();
@@ -154,16 +159,18 @@ class DoublyLinkedList {
 			curr = curr.next
 			i++;
 		}
-		if (curr.prev !== null) {
-            curr.prev.next = curr.next;
-        }
-        if (curr.next !== null) {
-            curr.next.prev = curr.prev;
-        }
+        //{} <-> {6}<-> {10}<-> {15} <-> {25} <-> null
+		const prevNode = curr.prev;
+		const nextNode = curr.next;
+         
+		prevNode.next = nextNode;
+		nextNode.prev = prevNode;
+
         this.size--;
         return curr.data;
 
 	}
+		
 
 	/**
 	 * Add the data at the specified index in the list. Return boolean true if successful, else false.
@@ -171,24 +178,33 @@ class DoublyLinkedList {
 	 * @param {*} index
 	 * @param {*} data
 	 */
+
+	//{} <-> {6}<-> {10}<-> {15} <-> {25} <-> null
 	add(index, data) {
-		if (index < 0 || index >= this.size ) return null;
-		if (index === 1 ) return this.addFirst(data);
-		if (index === this.size - 1) return this.addLast(data);
-
-        const newNode = new Node(data);
-		let curr = this.getHead();
-		for (let i=0; i< index - 1; i++){
-			if (i< index) curr.next;
-
-			newNode.next = curr.next;
-			newNode.prev = curr;
+		if (index < 0 || index > this.size ) return false;
+		if (index === 0 ) 
+		{ this.addFirst(data); 
+			return true}
+		if (index === this.size) 
+		{this.addLast(data); 
+			return true}
+        
+		let curr = this.sentinel;
+        
+        let i =0;
+		while (i < index){
+			curr = curr.next
+			i++;
+		}
+        const newNode = new Node(data, curr , curr.next);
 			curr.next.prev = newNode;
 			curr.next = newNode;
 			this.size++;
-			return newNode;
-		}
-	}
+			return true;
+		};
+
+	
+	
 
 	/**
 	 * Return first item in list, without removing it.
@@ -219,13 +235,13 @@ lst.printBackward();
 lst.addFirst(-1);
 lst.print();
 lst.printBackward();
-lst.removeFirst();
+console.log(lst.removeFirst())
 lst.print();
-lst.peekFirst();
+// lst.peekFirst();
+// lst.print();
+// console.log('First value:', lst.peekFirst())
+// console.log('Last value:', lst.peekLast())
+console.log('removed value:', lst.remove(1))
 lst.print();
-console.log('First value:', lst.peekFirst())
-console.log('Last value:', lst.peekLast())
-console.log('removed value:', lst.remove(2))
-lst.print();
-console.log('added value:', lst.add(0,10))
+console.log('added value:', lst.add(4,10))
 lst.print();
