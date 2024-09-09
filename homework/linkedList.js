@@ -38,7 +38,8 @@ function printList(head) {
     while (curr !== null) {
         result.push(curr.val);
         curr = curr.next;
-        }
+    }
+    return result
     }
 
 
@@ -53,11 +54,10 @@ const head = new ListNode(1, n2);
 
 
 // then reverse the list then print the new list
-console.log(printList(head))
+console.log(printList(reverseList(head)))
 
 
 
-console.log(printList(head))
 
 
 // Ex 1: Input: list = [1, 2, 3, 4, 5]

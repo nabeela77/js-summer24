@@ -409,17 +409,37 @@ class LinkedList {
 	 * Find the index of the target value. Return -1 if target is not found.
 	 * @param {*} target
 	 */
-	indexOf(target) {}
+	indexOf(target) {
+		let curr = this.getHead();
+        let index = 0;
+        while (curr !== null) {
+        if (curr.val === target) {
+            return console.log("the index of target value is :",index);
+        }
+        curr = curr.next;
+        index++;
+	}
 
 	/**
 	 * Return first item in list, without removing it.
 	 */
-	peekFirst() {}
+	peekFirst() {
+		if (this.size === 0) return null;
+        return this.getHead().val;
+	}
 
 	/**
 	 * Return last item in list, without removing it.
 	 */
-	peekLast() {}
+	peekLast() {
+		if (this.size === 0) return null;
+
+        let curr = this.getHead();
+        while (curr.next !== null) {
+            curr = curr.next;
+        }
+        return curr.val;
+	}
 }
 
 // const list = new LinkedList(1);
