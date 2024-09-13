@@ -1,5 +1,6 @@
-import ReactDOM from "react-dom/client";
-import Clock from "./components/Clock";
+// import ReactDOM from "react-dom/client";
+// import Clock from "./components/Clock";
+import Form from "./components/Form";
 // import "./index.css";
 
 // function Clock(props) {

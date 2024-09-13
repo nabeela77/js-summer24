@@ -14,13 +14,13 @@ class Clock extends Component {
 
 	// lifecycle method React will call when your component has just mounted to the DOM
 	// set up any resources here
-	componentDidMount() {
+	componentDidMount() { // when component is mounted we can perform and write certain functions
 		this.timerID = setInterval(() => this.tick(), 1000);
 	}
 
 	// lifecycle method React will call when your component is about to get unmounted from the DOM
 	// remove / clean up any resources here
-	componentWillUnmount() {
+	componentWillUnmount() { // when component is about to be unmounted we can clear up the component
 		clearInterval(this.timerID);
 	}
 
@@ -45,5 +45,11 @@ class Clock extends Component {
 		);
 	}
 }
-
+//  2 things causes react to rerender, 1 when state changes. 2, when props changes
+// props of component can be state
+// never use this  in functions only use in class
+// re-rendering happens on whole page in virtual js DOM, but update occurs on Chnaged DOM element with diffing process
+// tick runs if rerendering happens even if we did not chnage state within the tick function
+// never change state directly always set state
+// 
 export default Clock;
