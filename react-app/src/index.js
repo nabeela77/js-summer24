@@ -1,8 +1,8 @@
-// import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/client";
 // import Clock from "./components/Clock";
 import Form from "./components/Form";
-// import "./index.css";
-
+import "./index.css";
+import React from 'react';
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -17,9 +17,7 @@ import Form from "./components/Form";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-	<div>
-		<Clock />
-	</div>
+		<Form />
 );
 
 
