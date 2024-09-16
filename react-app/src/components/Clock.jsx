@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 // proper functional React component (should be in its own file)
-// but I'm not doing that due to laziness
+
 
 function FormattedDate({date}) {
 	return <h2>It is {date.toLocaleTimeString()}</h2>;

@@ -1,6 +1,7 @@
+
 function Form() {
-    function handleSubmit(e) {
-      e.preventDefault();
+    function handleSubmit(e) { // e is synthetic event
+      e.preventDefault(); //event handler
       console.log('You clicked submit.');
     }
   
@@ -12,3 +13,6 @@ function Form() {
   }
 
 export default Form;
+
+// event is when something is triggrered 
+// event handleres should be used for default events to happen
