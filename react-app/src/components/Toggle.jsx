@@ -1,40 +1,40 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 class Toggle extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { isToggleOn: true }; // default state
-        
-        //  binding "this"breferece to our class toggle
-        // otherwise when we pass this to button onCLick handler, the "this" might be lost
-        // we need this.setState to be invoked correctly
-        this.handleClick = this.handleClick.bind(this) // bind has return of function
+
+		// binding the "this" reference to our class Toggle
+		// otherwise when we pass this to the button onClick handler, the "this"
+		// reference might be lost
+		// we need this.setState to be invoked correctly
+		this.handleClick = this.handleClick.bind(this); // reassign bound function
 	}
 
-    // onClick handler
-    handleClick(e) {
-        console.log("click event", e);
+	// onClick handler
+	handleClick(e) {
+		console.log("click event", e);
 
-        this.setState((prevState) => ({ isToggleOn: !prevState.isToggleOn}));
-    }
-    render () {
-        return (
-            <div>
-                <h1>
-                {this.state.isToggleOn ? 
-                "Toggle is on" : 
-                "Toggle is off"} 
-                </h1>
-                <button type="button" onClick={this.handleClick}>
-                {this.state.isToggleOn ? "ON" : "OFF"} 
-                </button> 
-            </div>
-        );//anything in between tags is children, use {} to make it jsx
-    }
-}  
+		this.setState((prevState) => ({ isToggleOn: !prevState.isToggleOn }));
+	}
+
+	// h1: "Toggle is on" or "Toggle is off"
+	render() {
+		return (
+			<div>
+				<h1>{this.state.isToggleOn ? "Toggle is on" : "Toggle is off"}</h1>
+				<button type="button" onClick={this.handleClick}>
+					{this.state.isToggleOn ? "ON" : "OFF"}
+				</button>
+			</div>
+		);
+	}
+}
 
 export default Toggle;
 
+// REFER TO react.js file in class folder
 // const toggle = {
 // 	handleClick: function () {
 // 		this.setState();

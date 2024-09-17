@@ -51,5 +51,5 @@ class Clock extends Component {
 // re-rendering happens on whole page in virtual js DOM, but update occurs on Chnaged DOM element with diffing process
 // tick runs if rerendering happens even if we did not chnage state within the tick function
 // never change state directly always set state
-// 
+// each component returns one elemnt 
 export default Clock;

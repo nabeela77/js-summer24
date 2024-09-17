@@ -5,6 +5,8 @@ import "./index.css";
 import React from 'react';
 import Toggle from "./components/Toggle";
 import ClockB from "./components/ClockB";
+import Greeting  from "./components/Greeting";
+import Login from "./components/Login";
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -19,7 +21,7 @@ import ClockB from "./components/ClockB";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-		<ClockB />
+		< Login/>
 );
 
 
