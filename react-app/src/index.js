@@ -7,6 +7,8 @@ import Toggle from "./components/Toggle";
 import ClockB from "./components/ClockB";
 import Greeting  from "./components/Greeting";
 import Login from "./components/Login";
+import LoginB from "./components/LoginB";
+import Accordion from "./components/Accordion";
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -21,7 +23,7 @@ import Login from "./components/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-		< Login/>
+		<Accordion />
 );
 
 

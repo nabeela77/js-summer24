@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Greeting from "./Greeting";
+import GreetingB from "./GreetingB";
 
 function LoginButton(props) {
 	return (
@@ -17,7 +17,7 @@ function LogoutButton(props) {
 	);
 }
 
-class Login extends Component {
+class LoginB extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { user: null };
@@ -42,14 +42,16 @@ class Login extends Component {
 	}
 
 	render() {
-		const { user } = this.state; // object deconstruction
+		const { user } = this.state;
 		return (
 			<div>
-				<Greeting user={user} />
+				<GreetingB user={user} />
 				{user ? <LogoutButton onClick={this.handleLogoutClick} /> : <LoginButton onClick={this.handleLoginClick} />}
 			</div>
 		);
 	}
 }
 
-export default Login;
+export default LoginB;
+
+// to pass info down to children component we pass on with components and props.
