@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import LoginB from "./components/LoginB";
 import Accordion from "./components/Accordion";
 import SignUp from "./components/Signup";
+import SignIn from "./components/SignIn";
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -24,7 +25,7 @@ import SignUp from "./components/Signup";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-		<Login />
+		<SignIn />
 );
 
 

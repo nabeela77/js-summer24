@@ -1,9 +1,9 @@
 import { Component, createRef } from "react";
 
-class SignUp extends Component {
+class SignIn extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { name: "", email: "", password: "" };
+		this.state = { email: "", password: "" };
 
 		this.pwRef = createRef();
 		this.handleChange = this.handleChange.bind(this);
@@ -24,22 +24,13 @@ class SignUp extends Component {
 	}
 
 	render() {
-		console.log("state ", this.state);
-		console.log("pwRef", this.pwRef);
-		const { name, email, password } = this.state;
+		const { email, password } = this.state;
 		return (
-			<form id="signup-form-container" onSubmit={this.handleSubmit}>
+			<form id="signin-container" onSubmit={this.handleSubmit}>
 				<div id="title-container">
-					<h1>Welcome to React!</h1>
+					<h1>Please sign in</h1>
 				</div>
-
-				{/* name, email, password */}
-				<div id="signup-form-input-container">
-					<label id="name">
-						Name:
-						<input id="name" type="text" name="name" onChange={this.handleChange} value={name} />
-					</label>
-
+				<div id="input-container">
 					<label id="email">
 						Email:
 						<input id="email" type="email" name="email" onChange={this.handleChange} value={email} />
@@ -51,15 +42,16 @@ class SignUp extends Component {
 					</label>
 				</div>
 
-				<div id="signup-form-submit-container">
-					<button type="submit">Create Account</button>
-					{/* <button type="reset">Reset Fields</button> */}
+				<div id="submit-container">
+					<button type="submit">Sign In</button>
 				</div>
 			</form>
 		);
 	}
 }
 
-export default SignUp;
+export default SignIn;
 
-// the ability to capture change state is only within class.
+
+
+
