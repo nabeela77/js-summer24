@@ -3,9 +3,9 @@ import { Component, createRef } from "react";
 class SignIn extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { email: "", password: "" };
+		this.state = { email: "", password: "" , rpassword:""};
 
-		this.pwRef = createRef();
+		this.pwRef = createRef(); // a change in ref does not cause rerendering, whereas change in state and props does
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -40,6 +40,11 @@ class SignIn extends Component {
 						Password:
 						<input id="password" type="password" name="password"  onChange={this.handleChange} value={password} ref={this.pwRef} />
 					</label>
+
+                    <label id="rpassword">
+						Re-enter Password:
+						<input id="rpassword" type="password" name="rpassword" ref={this.pwRef} />
+					</label>
 				</div>
 
 				<div id="submit-container">
@@ -51,6 +56,8 @@ class SignIn extends Component {
 }
 
 export default SignIn;
+
+// ref store infor across rendering
 
 
 
