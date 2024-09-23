@@ -1,17 +1,9 @@
 import ReactDOM from "react-dom/client";
+import WelcomeDialog from "./components/WelcomeDialog";
+import SplitPane from "./components/SplitPane";
+import SignUp from "./components/SignUp";
 import Clock from "./components/Clock";
-// import Form from "./components/Form";
-import "./index.css";
-import React from 'react';
-import Toggle from "./components/Toggle";
-import ClockB from "./components/ClockB";
-import Greeting  from "./components/Greeting";
-import Login from "./components/Login";
-import LoginB from "./components/LoginB";
-import Accordion from "./components/Accordion";
-import SignUp from "./components/Signup";
-import SignIn from "./components/SignIn";
-import Calculator from "./components/Calculator";
+import FancyBorder from "./components/WelcomeDialog/FancyBorder";
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -25,8 +17,26 @@ import Calculator from "./components/Calculator";
 // }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+// 		<Calculator />
+// );
+
 root.render(
-		<Calculator />
+	<div>
+		<WelcomeDialog />
+		<SplitPane
+			left={
+				<FancyBorder borderColor={"green"}>
+					<Clock />
+				</FancyBorder>
+			}
+			right={
+				<FancyBorder borderColor={"red"}>
+					<SignUp />
+				</FancyBorder>
+			}
+		/>
+	</div>
 );
 
 
