@@ -82,3 +82,75 @@ export default SignUp;
 // any change in state should reflect in html element and any change in html element should reflect in state 
 
 //   a controlled component is sync of react state and input element state, react has control over html element 
+
+
+
+
+import { useState } from "react";
+
+const InitialFormState = { name: "", email: "", password: "" };
+
+export function SignUpB() {
+  const [formData, setFormData] = useCustomState(InitialFormState);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log("Form submitted:", formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        placeholder="Name"
+      />
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
+      <input
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Password"
+      />
+      <button type="submit">Sign Up</button>
+    </form>
+  );
+}
+
+function useCustomState(initialState) {
+  const [state, setState] = useState(initialState);
+
+  const customSetState = (callback) => {
+    if (typeof callback === 'function') {
+      setState((prevState) => ({
+        ...prevState,
+        ...callback(prevState),
+      }));
+    } else {
+      setState((prevState) => ({
+        ...prevState,
+        ...callback,
+      }));
+    }
+  };
+
+  return [state, customSetState];
+}
