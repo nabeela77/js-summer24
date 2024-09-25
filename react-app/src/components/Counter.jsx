@@ -19,3 +19,4 @@ export default function Counter() {
 }
 
 // ref and state are preserved accross rerendering
+// always destructure usestate 

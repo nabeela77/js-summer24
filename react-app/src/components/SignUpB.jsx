@@ -1,59 +1,41 @@
 import { useState } from "react";
 
-const InitialFormState = {name:"", email:"", password:""};
+const initalFormState = { name: "", email: "", password: "" };
 
-export function SignUpB(){
-   useState(InitialFormState);
-  
-    handleChange = (event) => {
-		console.log(event);
+export function SignUpB() {
+	const [form, setForm] = useState(initalFormState);
+	const { name, email, password } = form;
+
+	const handleChange = (event) => {
 		const { id, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [id]: value
-          }));
-	}
+		setForm((prevData) => ({
+			...prevData,
+			[id]: value,
+		}));
+	};
 
-	handleSubmit= (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("Form submitted:", formData);
-	}
-    return (
-        <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Name"
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Password"
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+		alert("Form submitted: " + JSON.stringify(form));
+	};
 
-    )
-
-};
-
-
-
-function useCustomState(initialState){
-const state = {initialState};
-return [state.initialState, function(callback){}];
+	return (
+		<form onSubmit={handleSubmit}>
+			<input id="name" type="text" name="name" value={name} onChange={handleChange} placeholder="Name" />
+			<input id="email" type="email" name="email" value={email} onChange={handleChange} placeholder="Email" />
+			<input id="password" type="password" name="password" value={password} onChange={handleChange} placeholder="Password" />
+			<button type="submit">Sign Up</button>
+		</form>
+	);
 }
 
+// function useCustomState(initialState) {
+// 	const state = { initialState };
+// 	return [state.initialState, function (callback) {}];
+// }
+
+// // we always update values in 
+// // always destructure usestate
+// // always use const 
 
 

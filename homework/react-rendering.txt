@@ -1,0 +1,25 @@
+3 scenarios:
+1. What happens when useEffect is given the callback & an empty dependency array?
+Ans: 1. React renders component, useState is initialized, methods of tick and intervalCb 
+     are created, and the initial JSX is generated.
+     2. The initial rendering happens and then useeffect runs where the interval is set to each second.
+     3. when the component unmounts the interval is cleared.
+
+
+2. What happens when useEffect is given the callback & the dependency array with the "date" state?
+Ans: 1. React renders component, useState is initialized, methods of tick and intervalCb 
+     are created, and the initial JSX is generated.
+     2. The initial rendering happens and then useeffect runs where the interval is set to each second.
+     3. when component mounts due to its dependency on date,  the component rerenders with new date, and the 
+     interval is cleared and new interval is formed.
+
+
+3. What happens when useEffect is given the callback & the dep. array with the intervalCb function?
+Ans: 1. React renders component, useState is initialized, methods of tick and intervalCb 
+     are created, and the initial JSX is generated.
+     2. The initial rendering happens and then useeffect runs where the interval is set to each second.
+     3. a new date is formed and then new intervalCb is recreated and on each render useffect runs again.
+     4. the interval is cleared.
+
+
+

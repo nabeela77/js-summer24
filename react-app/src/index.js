@@ -6,6 +6,7 @@ import Clock from "./components/Clock";
 import FancyBorder from "./components/WelcomeDialog/FancyBorder";
 import Counter from "./components/Counter";
 import { SignUpB } from "./components/SignUpB";
+import ClockC from "./components/ClockC";
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -20,7 +21,7 @@ import { SignUpB } from "./components/SignUpB";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-		<SignUpB />
+		<ClockC />
 );
 
 // root.render(
