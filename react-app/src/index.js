@@ -1,12 +1,19 @@
-import ReactDOM from "react-dom/client";
-import WelcomeDialog from "./components/WelcomeDialog";
-import SplitPane from "./components/SplitPane";
-import SignUp from "./components/SignUp";
-import Clock from "./components/Clock";
-import FancyBorder from "./components/WelcomeDialog/FancyBorder";
-import Counter from "./components/Counter";
-import { SignUpB } from "./components/SignUpB";
-import ClockC from "./components/ClockC";
+import ReactDOM from "react-dom/client"; 
+import FilterableProductTable from FilterableProductTable
+
+// import WelcomeDialog from "./components/WelcomeDialog";
+// import SplitPane from "./components/SplitPane";
+// import SignUp from "./components/SignUp";
+// import Clock from "./components/Clock";
+// import FancyBorder from "./components/WelcomeDialog/FancyBorder";
+// import Counter from "./components/Counter";
+// import { SignUpB } from "./components/SignUpB";
+// import ClockC from "./components/ClockC";
+// import App from "./App";
+
+
+
+
 // function Clock(props) {
 // 	const time = new Date().toLocaleTimeString();
 
@@ -19,10 +26,10 @@ import ClockC from "./components/ClockC";
 // 	return element;
 // }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-		<ClockC />
-);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+// 		<App />
+// );
 
 // root.render(
 // 	<div>
@@ -41,5 +48,11 @@ root.render(
 // 		/>
 // 	</div>
 // );
+
+
+
+
+
+
 
 

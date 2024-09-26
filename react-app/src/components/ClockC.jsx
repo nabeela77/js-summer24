@@ -37,3 +37,13 @@ export default function ClockC() {
 	);
     
 }
+// jsx elements are immutable
+// the dependency array tells useffect when to call the callback{} function again.
+// 1. when dependecy array is not included the callback function 
+// is called over again only if rerender occurs.
+// when state change is not there it call backs once per rerender
+// 2. when dependency array is empty callback function is called just once when component has mounted.
+// 3. when dependency array has const variables(date) it calls the callback 
+//   function based upon dependencies entered. In this callback changes state.
+// 4.when dependency array has function in it , it will run based on stack, also reruns from top to bottom
+//  making the funcional methods to be stored in different memory address

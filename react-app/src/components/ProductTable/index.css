@@ -1,0 +1,30 @@
+filterable-product-table {
+    border: 2px solid orange;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .search-bar {
+    border: 2px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-category-row th {
+    background-color: turquoise;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .product-row td {
+    border: 1px solid red;
+    padding: 10px;
+  }
