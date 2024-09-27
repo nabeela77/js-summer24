@@ -26,7 +26,7 @@ export default function ClockC() {
 			console.log("useEffect: componentWillUnmount");
 			clearInterval(timerId);
 		};
-	}, []);
+	}, [date]);
 
 	console.log("rendering");
 	return (
