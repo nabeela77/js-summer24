@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./FilterableProductTable.css";
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
@@ -14,7 +14,24 @@ const products = [
 	{ category: "Household Supplies", price: "$199.99", stocked: true, name: "Frying Pan" },
 ];
 
-
+const productsTransformed = [
+	{
+		categoryName: "Sporting Goods",
+		products: [
+			{ category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
+			{ category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball" },
+			{ category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball" },
+		],
+	},
+	{
+		categoryName: "Electronics",
+		products: [
+			{ category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch" },
+			{ category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
+			{ category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" },
+		],
+	},
+];
 
 function transformProducts(products) {
 	const transformed = [];
@@ -34,31 +51,46 @@ function transformProducts(products) {
 			products: categories[category],
 		});
 	}
-	console.log(transformed);
+	// console.log(transformed);
 	return transformed;
 }
 
-export default function FilterableProductTable() {
-	// TODO: setup state to maintain products list, default list should be empty or null
-	// transform original product list and set it as state in useEffect hook
-  // Set up state to maintain products list, default list is null
-	const [transformedProducts, setTransformedProducts] = useState([]);
+function filter(categories, filterText, checkInStock) {
+	const nameLower = filterText.toLowerCase();
+  
+	return categories.map(category => ({
+	  ...category,
+	  products: category.products.filter(product => {
+		const nameMatches = product.name.toLowerCase().includes(nameLower);
+		return checkInStock ? nameMatches && product.stocked : nameMatches;
+	  })
+	}));
+  }
 
-	
+export default function FilterableProductTable() {
+	const [categories, setCategories] = useState([]);
+	const [search, setSearch] = useState("");
+	const [inStock, setInStock] = useState(false);
+
 	useEffect(() => {
 		const transformed = transformProducts(products);
-		setTransformedProducts(transformed);
+		setCategories(transformed);
 	}, []);
+
+	const handleSearchChange = (event) => {
+		setSearch(event.target.value);
+	};
+
+	const handleCheckInStockChange = (event) => {
+		setInStock(event.target.checked);
+	};
+
+	console.log(filter(categories, search, inStock));
+
 	return (
 		<div className="filterable-product-table">
-			<SearchBar />
-			{transformedProducts ? (
-			<ProductTable filteredProducts={transformedProducts} />
-			) : (
-			<p>Loading products...</p>
-			)}
+			<SearchBar search={search} inStock={inStock} handleSearchChange={handleSearchChange} handleCheckInStockChange={handleCheckInStockChange} />
+			<ProductTable filteredProducts={productsTransformed} />
 		</div>
-		);
-
+	);
 }
-
