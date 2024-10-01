@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState, useDebounce } from "react";
 import "./FilterableProductTable.css";
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
@@ -56,20 +56,29 @@ function transformProducts(products) {
 }
 
 function filter(categories, filterText, checkInStock) {
-	const nameLower = filterText.toLowerCase();
-  
-	return categories.map(category => ({
-	  ...category,
-	  products: category.products.filter(product => {
-		const nameMatches = product.name.toLowerCase().includes(nameLower);
-		return checkInStock ? nameMatches && product.stocked : nameMatches;
-	  })
-	}));
-  }
+	console.log("filter is running");
+	if (filterText === "" && !checkInStock) return categories;
+
+	filterText = filterText.toLowerCase();
+	return categories?.map((category) => {
+		return {
+			...category,
+			products: category.products.filter((product) => {
+				const matchedFilteredText = product.name.toLowerCase().includes(filterText);
+				
+				return checkInStock ? matchedFilteredText && product.stocked : matchedFilteredText;
+			}),
+		};
+	});
+}
+
 
 export default function FilterableProductTable() {
 	const [categories, setCategories] = useState([]);
+
 	const [search, setSearch] = useState("");
+	const delayedSearch = useDebounce(search, 2000);
+
 	const [inStock, setInStock] = useState(false);
 
 	useEffect(() => {
@@ -85,12 +94,20 @@ export default function FilterableProductTable() {
 		setInStock(event.target.checked);
 	};
 
-	console.log(filter(categories, search, inStock));
+	const filteredCategories = useMemo(() => {
+	         return filter(categories,delayedSearch, inStock);
+	}, [categories,delayedSearch, inStock]); //search
+	
+	// const filteredCategories =  filter(categories, search, inStock);
 
 	return (
 		<div className="filterable-product-table">
-			<SearchBar search={search} inStock={inStock} handleSearchChange={handleSearchChange} handleCheckInStockChange={handleCheckInStockChange} />
-			<ProductTable filteredProducts={productsTransformed} />
+			<SearchBar search={search} inStock={inStock} handleSearchChange={handleSearchChange}
+			 handleCheckInStockChange={handleCheckInStockChange} />
+			<ProductTable filteredProducts={filteredCategories} />
+
 		</div>
 	);
 }
+
+// derived state is dependent state so we should never assign new state to it
