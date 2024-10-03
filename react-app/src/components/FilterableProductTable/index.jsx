@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, useDebounce } from "react";
+import { useEffect, useMemo, useState } from "react";
+import useDebounce from "../../hooks/useDebounce";
 import "./FilterableProductTable.css";
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
@@ -77,7 +78,7 @@ export default function FilterableProductTable() {
 	const [categories, setCategories] = useState([]);
 
 	const [search, setSearch] = useState("");
-	const delayedSearch = useDebounce(search, 2000);
+	const delayedSearch = useDebounce(search, 500);
 
 	const [inStock, setInStock] = useState(false);
 
@@ -111,3 +112,6 @@ export default function FilterableProductTable() {
 }
 
 // derived state is dependent state so we should never assign new state to it
+
+
+// 
