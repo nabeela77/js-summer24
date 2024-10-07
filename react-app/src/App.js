@@ -5,6 +5,8 @@ import React from "react";
 import PublicRoutes from "./components/Layout/PublicRoutes";
 import Unauthorized from "./pages/Unauthorized";
 import Login from "./pages/public/auth/Login";
+import Register from "./pages/public/auth/Register";
+import LoginFormB from "./pages/public/auth/Login/LoginFormB";
 
 function App() {
   return (
@@ -12,8 +14,8 @@ function App() {
       {/* Public Routes */}
       <Route path="/" element={<PublicRoutes />}>
         <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        {/* <Route path="register" element={<Register />} /> */}
+        <Route path="login" element={<LoginFormB />} />
+        <Route path="register" element={<Register />} />
         <Route path="unauthorized" element={<Unauthorized />} />
       </Route>
 
