@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import FormError from "../../../../components/FormError";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
+import { useNavigate } from "react-router-dom";
 
 const EMAIL_REGEX =
   /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -20,6 +21,7 @@ const schema = yup.object({
   password: yup.string().min(8, "Must be at least 8 characters.").required(),
 });
 const LoginFormB = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -35,6 +37,10 @@ const LoginFormB = () => {
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
+  };
+
+  const handleGoBack = () => {
+    navigate("/");
   };
 
   return (
@@ -53,7 +59,7 @@ const LoginFormB = () => {
         Log In
       </Button>
 
-      <Button type="submit" color="">
+      <Button type="submit" color="" onClick={handleGoBack}>
         Go Back
       </Button>
     </form>
