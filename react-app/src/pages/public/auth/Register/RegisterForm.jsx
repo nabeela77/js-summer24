@@ -29,6 +29,11 @@ const schema = yup.object({
     .string()
     .max(50, "Max character is 50.")
     .email()
+    .test({
+      test: (email) => email.length > 10,
+      message: "Email must be longer than 10 characters.",
+      name: "Email min length",
+    })
     .required("Email is required."),
   password: yup.string().min(8, "Must be at least 8 characters.").required(),
   phone: yup
