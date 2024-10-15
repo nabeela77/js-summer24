@@ -41,7 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     console.log("start of useEffect");
-    getUser();
+    // getUser();
 
     // fetch("https://jsonplaceholder.typicode.com/users/1")
     // 	.then((response) => {
