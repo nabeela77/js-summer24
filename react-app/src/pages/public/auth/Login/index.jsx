@@ -6,7 +6,7 @@ import LoginFormB from "./LoginFormB";
 const Login = () => {
   return (
     <PageContainer pageTitle={"Login"}>
-      <LoginFormB />
+      <LoginForm />
     </PageContainer>
   );
 };

@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = useCallback(() => {
     // typically POST to /logout endpoint
-    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("refresh Token");
     setUser(null);
     navigate("/");
   }, [navigate]);

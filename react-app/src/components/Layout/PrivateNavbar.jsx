@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Button from "../Button";
 import logo from "./../../assets/logos/logo.svg";
+import AuthCannotAccess from "./AuthCannotAccess";
 
 const PrivateNavbar = () => {
   const { logout } = useAuth();
@@ -27,6 +28,15 @@ const PrivateNavbar = () => {
         </li>
         <li>
           <Link to="/comments">Comments</Link>
+        </li>
+
+        <AuthCannotAccess>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </AuthCannotAccess>
+        <li>
+          <Link to="/register">Register</Link>
         </li>
       </ul>
 
