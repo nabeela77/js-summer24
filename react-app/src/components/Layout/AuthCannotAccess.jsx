@@ -1,23 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import PrivateNavbar from "./PrivateNavbar";
-const AuthCannotAccess = () => {
-  const { user } = useAuth();
+import { AuthContext } from "../../contexts/AuthProvider";
+import { Navigate } from "react-router-dom";
 
-  const isAuthenticated = user && user.id > 0 && user.accessToken;
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-  };
-  //   const handleLoginR = (e) => {
-  //     e.preventDefault();
-  //   };
-  return (
-    <div>
-      {isAuthenticated ? "Login" : <PrivateNavbar onLoginClick={handleLogin} />}
-    </div>
-  );
+const AuthCannotAccess = (props) => {
+  //const children = props.children;
+  const { children } = props;
+  //   const { user } = useAuth();
+  const auth = useAuth();
+  const user = auth.user;
+  if (user) {
+    return <Navigate to="/admin" replace />;
+  }
+  return children;
 };
+
 export default AuthCannotAccess;
