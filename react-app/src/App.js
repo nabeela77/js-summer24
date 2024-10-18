@@ -20,19 +20,11 @@ function App() {
         <Route index element={<Home />} />
         <Route
           path="login"
-          element={
-            <AuthCannotAccess>
-              <Login />
-            </AuthCannotAccess>
-          }
+          element={<AuthCannotAccess>{<Login />} </AuthCannotAccess>}
         />
         <Route
           path="register"
-          element={
-            <AuthCannotAccess>
-              <Register />
-            </AuthCannotAccess>
-          }
+          element={<AuthCannotAccess>{<Register />}</AuthCannotAccess>}
         />
         <Route path="unauthorized" element={<Unauthorized />} />
       </Route>
