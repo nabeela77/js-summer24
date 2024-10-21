@@ -85,12 +85,6 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome back, {user?.name}</h1>
-      <AccessControl>
-        <Button color="primary">Test A</Button>
-      </AccessControl>
-      <AccessControl>
-        <Button color="primary">Test B</Button>
-      </AccessControl>
     </div>
   );
 };
