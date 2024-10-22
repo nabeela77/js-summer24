@@ -13,7 +13,7 @@ import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./components/Layout/AuthCannotAccess";
 import AccessControl from "./components/Layout/AccessControl";
 
-const role = ["student", "teacher", "admin", "super-admin"];
+const role = ["admin", "super-admin"];
 const requiredRoles = ["admin", "super-admin"];
 const superAdminRole = ["super-admin"];
 
@@ -45,8 +45,30 @@ function App() {
       {/* Private Routes */}
       <Route element={<PrivateRoutes />}>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/super-admin" element={<SuperAdmin />} />
+        <Route
+          path="/admin"
+          element={
+            <AccessControl
+              requiredRoles={requiredRoles}
+              role={role}
+              type="page"
+            >
+              <Admin />
+            </AccessControl>
+          }
+        />
+        <Route
+          path="/super-admin"
+          element={
+            <AccessControl
+              requiredRoles={requiredRoles}
+              role={superAdminRole}
+              type="page"
+            >
+              <SuperAdmin />
+            </AccessControl>
+          }
+        />
       </Route>
     </Routes>
   );

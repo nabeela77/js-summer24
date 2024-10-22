@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import AccessControl from "../components/Layout/AccessControl";
 
-const superAdminRole = ["admin", "super-admin"];
-const adminRole = "admin";
+const superAdminRole = "super-admin";
+const adminRole = ["admin", "super-admin"];
 const requiredRoles = ["admin", "super-admin"];
 
 const Home = () => {

@@ -26,10 +26,6 @@ const PrivateNavbar = () => {
         <li>
           <Link to="/super-admin">Super Admin</Link>
         </li>
-        {/* <li>
-          <Link to="/comments">Comments</Link>
-        </li> */}
-
         <AuthCannotAccess>
           <li>
             <Link to="/login">Login</Link>
