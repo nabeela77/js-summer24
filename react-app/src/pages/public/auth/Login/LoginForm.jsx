@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button";
 import useAuth from "../../../../hooks/useAuth";
-import useFakeLogin from "../../../../hooks/useFakeLogin";
 
 const EMAIL_REGEX =
   /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;

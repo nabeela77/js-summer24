@@ -26,18 +26,20 @@ const PrivateNavbar = () => {
         <li>
           <Link to="/super-admin">Super Admin</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/comments">Comments</Link>
-        </li>
+        </li> */}
 
         <AuthCannotAccess>
           <li>
             <Link to="/login">Login</Link>
           </li>
         </AuthCannotAccess>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
+        <AuthCannotAccess>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+        </AuthCannotAccess>
       </ul>
 
       <div className="flex gap-3">

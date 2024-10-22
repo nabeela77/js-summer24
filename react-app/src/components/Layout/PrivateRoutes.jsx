@@ -7,7 +7,7 @@ const PrivateRoutes = () => {
   const location = useLocation();
   const { user } = useAuth();
 
-  console.log("user in private routes", user);
+  // console.log("user in private routes", user);
 
   const isAuthenticated = user && user.id > 0 && user.accessToken;
 

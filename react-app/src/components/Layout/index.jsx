@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./Navbar";
 import useAuth from "../../hooks/useAuth";
 import PrivateNavbar from "./PrivateNavbar";
-import AuthCannotAccess from "./AuthCannotAccess";
 
 const Layout = ({ children }) => {
   const { user } = useAuth();

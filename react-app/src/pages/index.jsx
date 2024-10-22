@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import AccessControl from "../components/Layout/AccessControl";
 import Button from "../components/Button";
+import AccessControl from "../components/Layout/AccessControl";
+
+const superAdminRole = ["admin", "super-admin"];
+const adminRole = "admin";
+const requiredRoles = ["admin", "super-admin"];
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -45,22 +49,22 @@ const Home = () => {
     console.log("start of useEffect");
     // getUser();
 
-    // fetch("https://jsonplaceholder.typicode.com/users/1")
-    // 	.then((response) => {
-    // 		console.log("response", response);
-    // 		if (!response.ok) {
-    // 			throw Error(`Unable to fetch user, status code ${response.status}`);
-    // 		}
-    // 		return response.json();
-    // 	})
-    // 	.then((user) => {
-    // 		console.log("user", user);
-    // 		setUser(user);
-    // 	})
-    // 	.catch((error) => {
-    // 		console.log("error", error);
-    // 		setErr(error);
-    // 	});
+    //     // fetch("https://jsonplaceholder.typicode.com/users/1")
+    //     // 	.then((response) => {
+    //     // 		console.log("response", response);
+    //     // 		if (!response.ok) {
+    //     // 			throw Error(`Unable to fetch user, status code ${response.status}`);
+    //     // 		}
+    //     // 		return response.json();
+    //     // 	})
+    //     // 	.then((user) => {
+    //     // 		console.log("user", user);
+    //     // 		setUser(user);
+    //     // 	})
+    //     // 	.catch((error) => {
+    //     // 		console.log("error", error);
+    //     // 		setErr(error);
+    //     // 	});
 
     console.log("end of useEffect");
   }, []);
@@ -81,10 +85,20 @@ const Home = () => {
       </div>
     );
   }
-
   return (
     <div>
       <h1>Welcome back, {user?.name}</h1>
+      <AccessControl requiredRoles={requiredRoles} role={adminRole} type="page">
+        <Button color="primary"> Admin</Button>
+      </AccessControl>
+
+      <AccessControl
+        requiredRoles={requiredRoles}
+        role={superAdminRole}
+        type="page"
+      >
+        <Button color="primary">Super Admin</Button>
+      </AccessControl>
     </div>
   );
 };

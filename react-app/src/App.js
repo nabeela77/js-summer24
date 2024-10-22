@@ -11,6 +11,11 @@ import Dashboard from "./pages/private/Dashboard";
 import Admin from "./pages/private/Admin";
 import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./components/Layout/AuthCannotAccess";
+import AccessControl from "./components/Layout/AccessControl";
+
+const role = ["student", "teacher", "admin", "super-admin"];
+const requiredRoles = ["admin", "super-admin"];
+const superAdminRole = ["super-admin"];
 
 function App() {
   return (
@@ -20,11 +25,19 @@ function App() {
         <Route index element={<Home />} />
         <Route
           path="login"
-          element={<AuthCannotAccess>{<Login />} </AuthCannotAccess>}
+          element={
+            <AuthCannotAccess>
+              <Login />
+            </AuthCannotAccess>
+          }
         />
         <Route
           path="register"
-          element={<AuthCannotAccess>{<Register />}</AuthCannotAccess>}
+          element={
+            <AuthCannotAccess>
+              <Register />
+            </AuthCannotAccess>
+          }
         />
         <Route path="unauthorized" element={<Unauthorized />} />
       </Route>
