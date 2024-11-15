@@ -1,5 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
+// useRef is used to access DOM elements
+//  useEffect is used for side effects like fetching data or directly interacting with the DOM(component mounting and unmounting)
+//  and useState is used to manage component state.
 import { useLocation, useNavigate } from "react-router-dom";
+//useLocation provides the current location object, and useNavigate is used for programmatic navigation (changing the route).
 import Button from "../../../../components/Button";
 import useAuth from "../../../../hooks/useAuth";
 
@@ -7,11 +11,11 @@ const EMAIL_REGEX =
   /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
 const LoginForm = () => {
-  const emailRef = useRef();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const emailRef = useRef(); //A reference to the email input field, allowing direct access to it
+  const navigate = useNavigate(); // navigating routes
+  const location = useLocation(); //Contains information about the current location
   const { login, loginErr, setLoginErr, isLoading, setIsLoading } = useAuth();
-  const from = location.state?.from?.pathname || "/dashboard";
+  const from = location.state?.from?.pathname || "/dashboard"; //where to navigate after a successful login
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -38,20 +42,21 @@ const LoginForm = () => {
   }, [email, pwd]);
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoginErr(null);
-    setIsLoading(true);
+    e.preventDefault(); // prevents the default form submission
+    setLoginErr(null); // Clears any previous login errors
+    setIsLoading(true); // Sets loading state to true
 
     // perform final validation
-    const t1 = EMAIL_REGEX.test(email) && email.length <= 50;
-    const t2 = pwd.length >= 4 && pwd.length <= 16;
+    const t1 = EMAIL_REGEX.test(email) && email.length <= 50; //checking the email regex validity
+    const t2 = pwd.length >= 4 && pwd.length <= 16; // checking password length validity
 
     if (!t1 || !t2) {
+      // if the t1 and t2 is invalid then error is popped up
       setErrMsg("Invalid Inputs");
-      setIsLoading(false);
-      return;
+      setIsLoading(false); // it is false as we did not logging
+      return; //end the function
     }
-
+    console.log("checking");
     login(from);
 
     // try {

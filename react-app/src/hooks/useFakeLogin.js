@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"; //JavaScript library used to make HTTP requests.
 import { useCallback } from "react";
 
 // used for both access and refresh tokens

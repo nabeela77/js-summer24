@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import AccessControl from "../components/Layout/AccessControl";
 
-const superAdminRole = "super-admin";
-const adminRole = ["admin", "super-admin"];
-const requiredRoles = ["admin", "super-admin"];
-
 const Home = () => {
   const [user, setUser] = useState(null);
   const [err, setErr] = useState(null);
@@ -88,15 +84,11 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome back, {user?.name}</h1>
-      <AccessControl requiredRoles={requiredRoles} role={adminRole} type="page">
+      <AccessControl>
         <Button color="primary"> Admin</Button>
       </AccessControl>
 
-      <AccessControl
-        requiredRoles={requiredRoles}
-        role={superAdminRole}
-        type="page"
-      >
+      <AccessControl>
         <Button color="primary">Super Admin</Button>
       </AccessControl>
     </div>

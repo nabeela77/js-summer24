@@ -2,6 +2,9 @@ import { createContext, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFakeLogin from "../hooks/useFakeLogin";
 
+// create context is used to create a context for managing state that can be shared across components.
+// useCallback is hook that returns a memoized version of the callback function, useful for optimizing performance by preventing unnecessary re-renders.
+// useState is a  hook for adding state to functional components
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
@@ -13,8 +16,8 @@ const AuthProvider = ({ children }) => {
 
   const login = useCallback(
     async (from) => {
-      setLoginErr(null);
-      setIsLoading(true);
+      setLoginErr(null); //resetting to null
+      setIsLoading(true); //
       try {
         const response = await fakeLogin();
         setUser({ ...response.data, accessToken: generateToken() });
@@ -34,7 +37,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = useCallback(() => {
     // typically POST to /logout endpoint
-    localStorage.removeItem("refresh Token");
+    localStorage.removeItem("refreshToken");
     setUser(null);
     navigate("/");
   }, [navigate]);

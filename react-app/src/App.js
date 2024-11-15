@@ -13,10 +13,6 @@ import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./components/Layout/AuthCannotAccess";
 import AccessControl from "./components/Layout/AccessControl";
 
-const role = ["admin", "super-admin"];
-const requiredRoles = ["admin", "super-admin"];
-const superAdminRole = ["super-admin"];
-
 function App() {
   return (
     <Routes>
@@ -49,24 +45,24 @@ function App() {
           path="/admin"
           element={
             <AccessControl
-              requiredRoles={requiredRoles}
-              role={role}
-              type="page"
+              role={"admin"}
+              requiredRoles={["admin", "super-admin"]} //using {} as we cannot pass array directly
+              isPage={true}
             >
               <Admin />
-            </AccessControl>
+            </AccessControl> //  <Admin />   passed is children
           }
         />
         <Route
           path="/super-admin"
           element={
             <AccessControl
-              requiredRoles={requiredRoles}
-              role={superAdminRole}
-              type="page"
+              role={"super-admin"}
+              requiredRoles={["super-admin"]}
+              isPage //this is same as isPage={true}
             >
               <SuperAdmin />
-            </AccessControl>
+            </AccessControl> // <SuperAdmin />  passed is children
           }
         />
       </Route>
