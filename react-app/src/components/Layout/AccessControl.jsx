@@ -4,19 +4,20 @@ import { Navigate } from "react-router-dom";
 // role: "student", "teacher", "admin", "super-admin"
 // requiredRoles: ["admin", "super-admin"]
 
-function checkAccess(role, requiredRoles) {
+export function checkAccess(role, requiredRoles) {
   if (!requiredRoles) return true;
   if (!role) return false;
   return requiredRoles.includes(role);
 }
 const AccessControl = (props) => {
   const { role, requiredRoles, isPage, children } = props;
+  console.log(props);
 
   const hasAccess = checkAccess(role, requiredRoles);
 
   if (!hasAccess && isPage)
     //if doesnt have access and isPage is true
-    return <Navigate to={"/unauthorized"} replace />; //replace is boolean, same as props.replace, replaces history stack
+    return <Navigate to={"/unauthorized"} replace={true} />; //replace is boolean, same as props.replace, replaces history stack
   if (!hasAccess) return null; // if isPage is false it would return undefined
 
   return children; // children can be page or component
