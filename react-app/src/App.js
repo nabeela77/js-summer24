@@ -12,7 +12,7 @@ import Admin from "./pages/private/Admin";
 import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./components/Layout/AuthCannotAccess";
 import AccessControl from "./components/Layout/AccessControl";
-
+import FeedbackForm from "./pages/FeedbackForm";
 function App() {
   return (
     <Routes>
@@ -36,6 +36,7 @@ function App() {
           }
         />
         <Route path="unauthorized" element={<Unauthorized />} />
+        <Route path="feedbackform" element={<FeedbackForm />} />
       </Route>
 
       {/* Private Routes */}

@@ -22,6 +22,9 @@ const Navbar = () => {
         <li className="bg-white hover:bg-indigo-300 hover:rounded-md">
           <Link to="/super-admin">Super Admin</Link>
         </li>
+        <li className="bg-white hover:bg-indigo-300 hover:rounded-md">
+          <Link to="/feedbackform">Feedback Form</Link>
+        </li>
       </ul>
 
       <ul className="flex gap-3">
