@@ -13,6 +13,7 @@ import SuperAdmin from "./pages/private/SuperAdmin";
 import AuthCannotAccess from "./components/Layout/AuthCannotAccess";
 import AccessControl from "./components/Layout/AccessControl";
 import FeedbackForm from "./pages/FeedbackForm";
+import TaskManager from "./pages/TaskManager";
 function App() {
   return (
     <Routes>
@@ -37,6 +38,7 @@ function App() {
         />
         <Route path="unauthorized" element={<Unauthorized />} />
         <Route path="feedbackform" element={<FeedbackForm />} />
+        <Route path="taskmanager" element={<TaskManager />} />
       </Route>
 
       {/* Private Routes */}
