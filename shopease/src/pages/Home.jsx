@@ -35,10 +35,24 @@ const Home = () => {
           {products.length > 0 ? (
             products.map((product) => (
               <div
+                key={product.id}
                 // An important attribute is missing
                 className="bg-white p-4 shadow-lg rounded-lg"
               >
                 {/*Complete the missing information to render all the products  */}
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="h-40 mx-auto object-contain mb-4"
+                />
+                <h3 className="text-lg font-semibold">{product.title}</h3>
+                <p className="text-blue-500 font-bold">${product.price}</p>
+                <Link
+                  to={`/products/${product.id}`}
+                  className="btn-primary block mt-4 text-center"
+                >
+                  View Details
+                </Link>
               </div>
             ))
           ) : (

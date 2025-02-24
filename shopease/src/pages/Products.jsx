@@ -29,11 +29,12 @@ const Products = () => {
           <div key={product.id} className="bg-white p-4 shadow-lg rounded-lg">
             <img
               //missing tag required to show images
+              src={product.image}
               alt={product.title}
               className="h-40 mx-auto object-contain"
             />
             <h3 className="mt-4 text-lg font-semibold">{product.title}</h3>
-            <p className="text-blue-600 font-bold">${product.price}</p>
+            <p className="text-blue-500 font-bold">${product.price}</p>
             <Link
               to={`/products/${product.id}`}
               className="btn-primary block mt-4 text-center"

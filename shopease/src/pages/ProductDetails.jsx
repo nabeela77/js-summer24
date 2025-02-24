@@ -4,7 +4,7 @@ import axios from "axios";
 import { useCart } from "../context/CartContext";
 
 const ProductDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams(); //q
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -28,7 +28,7 @@ const ProductDetails = () => {
     <div className="p-6 max-w-4xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <img
-          //missing tag required to show image
+          src={product.image}
           alt={product.title}
           className="w-full h-96 object-contain"
         />
@@ -40,6 +40,7 @@ const ProductDetails = () => {
           </p>
           <button
             //Missing handler
+            onClick={addToCart}
             className="btn-primary mt-4"
           >
             Add to Cart
