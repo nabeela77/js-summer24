@@ -49,7 +49,7 @@ const Home = () => {
                 <p className="text-blue-500 font-bold">${product.price}</p>
                 <Link
                   to={`/products/${product.id}`}
-                  className="btn-primary block mt-4 text-center"
+                  className="btn-black block mt-4 text-center"
                 >
                   View Details
                 </Link>

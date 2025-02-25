@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useCart } from "../context/CartContext";
+import Button from "../Button";
 
 const ProductDetails = () => {
-  const { id } = useParams(); //q
+  const { id } = useParams();
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,13 +39,13 @@ const ProductDetails = () => {
           <p className="text-2xl font-semibold text-blue-600 mt-4">
             ${product.price}
           </p>
-          <button
+          <Button
             //Missing handler
-            onClick={addToCart}
+            onClick={() => addToCart(product)}
             className="btn-primary mt-4"
           >
             Add to Cart
-          </button>
+          </Button>
         </div>
       </div>
     </div>

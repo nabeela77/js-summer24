@@ -7,6 +7,8 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   //Add the CartProvider to ensure components can use the context provided from it
   <React.StrictMode>
-    <App />
+    <CartProvider>
+      <App />
+    </CartProvider>
   </React.StrictMode>
 );
