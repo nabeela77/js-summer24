@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useCart } from "../context/CartContext";
-import Button from "../Button";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -39,13 +38,13 @@ const ProductDetails = () => {
           <p className="text-2xl font-semibold text-blue-600 mt-4">
             ${product.price}
           </p>
-          <Button
+          <button
             //Missing handler
             onClick={() => addToCart(product)}
-            className="btn-primary mt-4"
+            className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
           >
             Add to Cart
-          </Button>
+          </button>
         </div>
       </div>
     </div>
