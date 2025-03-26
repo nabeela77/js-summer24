@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
+import { useNotification } from "../context/NotificationContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { addToWishlist } = useWishlist();
+  const { addNotification } = useNotification;
 
   useEffect(() => {
     axios
@@ -40,10 +44,22 @@ const ProductDetails = () => {
           </p>
           <button
             //Missing handler
-            onClick={() => addToCart(product)}
+            onClick={() => {
+              addToCart(product);
+              addNotification("product added to cart", "success");
+            }}
             className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
           >
             Add to Cart
+            {""}
+          </button>
+          {""}
+          <button
+            //Missing handler
+            onClick={() => addToWishlist(product)}
+            className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+          >
+            Add to Wishlist
           </button>
         </div>
       </div>

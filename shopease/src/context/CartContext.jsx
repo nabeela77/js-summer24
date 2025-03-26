@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { useNotification } from "./NotificationContext";
 
 const CartContext = createContext();
 
@@ -15,6 +16,7 @@ export const CartProvider = ({ children }) => {
   });
 
   const [total, setTotal] = useState(0);
+  const { addNotification } = useNotification();
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -22,15 +24,20 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   const addToCart = (product) => {
-    setCart((prevCart) => {
-      return prevCart.find((item) => item.id === product.id)
-        ? prevCart.map((item) =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          )
-        : [...prevCart, { ...product, quantity: 1 }];
-    });
+    try {
+      setCart((prevCart) => {
+        return prevCart.find((item) => item.id === product.id)
+          ? prevCart.map((item) =>
+              item.id === product.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            )
+          : [...prevCart, { ...product, quantity: 1 }];
+      });
+      addNotification("item added to cart", "success");
+    } catch {
+      addNotification("Something went wrong", "error");
+    }
   };
 
   const removeFromCart = (id) => {

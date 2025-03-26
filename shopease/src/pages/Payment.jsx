@@ -25,7 +25,7 @@ const Payment = () => {
 
     setTimeout(() => {
       navigate(`/order-tracking/${orderId}`);
-    }, 2000);
+    }, 2000); //setTimeout is defined only for simulating API call
   };
 
   useEffect(() => {
